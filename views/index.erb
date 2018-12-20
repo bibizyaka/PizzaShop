@@ -1,7 +1,23 @@
 <h2>Welcome to Pizza Shop!!!</h2>
-<%@products.each do |product| %>
 
-   <h5><%=product.title%></h5><hr/>
+<div class="raw">
 
- <%end%>
+		<%@products.each do |product| %>
+	<div class="col-md-3">
+
+     		<%=product.title%>
+	    	<%=product.description%>
+	    	<%=product.size%>
+   			<%=product.price%>
+ 	    	<%=product.is_veg%>
+ 		  	<%=product.is_spicy%>
+ 		  	<%=product.is_best_offer%>
+ 		  	<img src="<%=product.path_to_image%>" />
+
+ 	</div>
+
+ 	 <%end%>
+
+ </div>
+ <div class="clearfix"></div><p></p>
 <button class="btn btn-primary" onclick = something()>Click Me!</button>
