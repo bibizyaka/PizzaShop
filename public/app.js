@@ -1,4 +1,3 @@
-
 function something() {
  
    var x = window.localStorage.getItem('aaa');
@@ -6,5 +5,12 @@ function something() {
    window.localStorage.setItem("aaa", x);
   
    alert(x);
+
+}
+
+
+funcion add_to_cart() {
+
+	alert("Added to Cart!");
 
 }
