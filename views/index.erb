@@ -27,7 +27,7 @@
  		  	Best Offer:<%=product.is_best_offer%>
  		</div>
 
- 		<button class="btn btn-sm btn-success" onClick="add_to_cart()">Add to Cart</button>
+ 		<button id="<%=product.id%>" class="btn btn-sm btn-success" onClick="add_to_cart(<%=product.id%>)">Add to Cart</button>
 
  	</div>
 
@@ -36,3 +36,44 @@
  </div>
  <div class="clearfix"></div><p></p>
 <button class="btn btn-primary" onclick = something()>Click Me!</button>
+
+<script>
+
+total_prods = total_prods_in_cart();
+show_cart(total_prods);
+
+function add_to_cart(id) {
+   
+   var count = window.localStorage.getItem("product_" + id);
+   count = count * 1 + 1; 
+   window.localStorage.setItem("product_" + id, count);	
+   alert("Added to Cart Product_" + count);
+
+   total_prods = total_prods_in_cart();
+   show_cart(total_prods);
+  
+  } //function
+
+ function total_prods_in_cart() {
+  
+     var total_prods = 0;
+     for (var i = 0; i < localStorage.length; i++) {
+	
+       var key = window.localStorage.key(i);
+       var value = window.localStorage.getItem(key);
+
+         if (value) {
+         	
+         	total_prods = total_prods + (value * 1);
+         }
+	}//for
+	return total_prods;
+} // function
+
+function show_cart(total_prods) {
+     
+	$('.totalCart').text("").text("Cart").append(" (" + total_prods * 1 + ")");
+  
+}  
+
+</script>
