@@ -41,6 +41,7 @@
 
 total_prods = total_prods_in_cart();
 show_cart(total_prods);
+update_input_orders();
 
 function add_to_cart(id) {
    
@@ -51,6 +52,7 @@ function add_to_cart(id) {
 
    total_prods = total_prods_in_cart();
    show_cart(total_prods);
+   update_input_orders();
   
   } //function
 
@@ -72,8 +74,40 @@ function add_to_cart(id) {
 
 function show_cart(total_prods) {
      
-	$('.totalCart').text("").text("Cart").append(" (" + total_prods * 1 + ")");
+	$('.totalCart').val("Cart (" + total_prods * 1 + ")");
   
-}  
+} // function
+
+
+function get_orders() {
+
+ var orders = "";
+     for (var i = 0; i < localStorage.length; i++) {
+	
+       var key = window.localStorage.key(i);
+       var value = window.localStorage.getItem(key);
+
+         if (value.indexOf("product_") != 0) {
+         	
+         	orders = orders + key + "=" + value + ",";
+         }
+	}//for
+	orders = orders.slice(0, -1);
+	$('.test').val(orders);
+	return orders;
+
+} // function
+
+function update_input_orders() {
+
+    orders = get_orders();
+   $('#orders').val(orders);
+
+}
+
+
+
+
+
 
 </script>

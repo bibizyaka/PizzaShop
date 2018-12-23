@@ -22,3 +22,9 @@ end
 get '/about' do
      erb :about
 end
+
+post '/cart' do
+	@orders = params[:orders]
+	erb :cart
+
+end
