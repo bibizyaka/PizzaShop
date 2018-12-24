@@ -40,7 +40,10 @@ post '/cart' do
 
 	orders_input = params[:orders]
     
-    @orders = pars_orders_input orders_input
+    @items = pars_orders_input orders_input
+    @items.each do |item| # changing id with product object
+      item[0] = Product.find(item[0])
+    end
 	
 	erb :cart
 end

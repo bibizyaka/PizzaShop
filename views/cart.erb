@@ -4,16 +4,24 @@
 	<div class="row">
        <table class="table table-striped">
        	<thead> 
-          <th>Product</th>
+          <th>Name</th>
+          <th>Price</th>
           <th>Quantity</th>
        	</thead>
        	<tbody>
-			<%@orders.each do |order| %>
-				<%#order = order.split("=")%>
-		        <tr><td><%=order[0]%></td>
-		        	<td><%=order[1]%></td>
+       		<%total_price = 0
+       		  total_qnt = 0%>
+			<%@items.each do |item| %>
+
+		        <tr><td><%=item[0].title%></td>
+		        	<td><%=item[0].price%></td>
+		        	<td><%=item[1]%></td>
 		        </tr>
+		         <% total_qnt += item[1].to_i
+                    total_price += item[0].price
+                  %>
 			<%end%>
+			<tr><td><b>Total</b></td><td><%=total_price * total_qnt%></td><td><%=total_qnt%></td></tr>
 		</tbody>
 	</table>
 	</div>
