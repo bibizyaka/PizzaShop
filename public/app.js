@@ -1,4 +1,4 @@
-unction add_to_cart(id) {
+function add_to_cart(id) {
    
    var count = window.localStorage.getItem(id);
    count = count * 1 + 1; 

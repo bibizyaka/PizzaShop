@@ -35,13 +35,18 @@
 
  </div>
  <div class="clearfix"></div><p></p>
-<button class="btn btn-primary" onclick = something()>Click Me!</button>
 
 <script>
 
-total_prods = total_prods_in_cart();
-show_cart(total_prods);
-update_input_orders();
+$( document ).ready(function() {
+
+    console.log( "ready!" );
+
+	total_prods = total_prods_in_cart();
+	show_cart(total_prods);
+	update_input_orders();
+});
+
 
 function add_to_cart(id) {
    
