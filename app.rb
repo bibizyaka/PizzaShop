@@ -37,12 +37,30 @@ get '/about' do
 end # get about
 
 post '/cart' do
-    
-	@orders = params[:orders]
-	@orders = @orders.split(",")
-	erb :cart
 
-end #post cart
+	orders_input = params[:orders]
+    
+    @orders = pars_orders_input orders_input
+	
+	erb :cart
+end
+
+ def pars_orders_input orders_input
+
+	orders_input = orders_input.split(/,/)
+    final_orders = []	
+    orders_input.each do |order|
+
+       s2 = order.split(/=/)
+       s3 = s2[0].split(/_/)
+       indx = s3[1]
+       qnt = s2[1]
+       arr2 = [indx,qnt]
+	   final_orders.push arr2
+    end
+    
+    return final_orders
+end #def pars
 
 post '/order' do
   
