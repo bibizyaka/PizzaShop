@@ -86,10 +86,35 @@ function get_orders() {
 
 } // function
 
+ function total_prods_in_cart() {
+  
+     var total_prods = 0;
+     for (var i = 0; i < localStorage.length; i++) {
+	
+       var key = window.localStorage.key(i);
+       var value = window.localStorage.getItem(key);
+
+         if (value) {
+         	
+         	total_prods = total_prods + (value * 1);
+         }
+	}//for
+	return total_prods;
+} // function
+
+function show_cart(total_prods) {
+     
+	$('.totalCart').val("Cart (" + total_prods * 1 + ")");
+  
+} // function
+
 function cancel_order() {
 
-   alert('I am alive');
-   return false;   
+  window.localStorage.clear();
+  $(".table").text("Cart Is Empty");
+	total_prods = total_prods_in_cart();
+	show_cart(total_prods);
+  return false;   
 } // function
 
 </script>

@@ -43,7 +43,7 @@ function add_to_cart(id) {
    var count = window.localStorage.getItem("product_" + id);
    count = count * 1 + 1; 
    window.localStorage.setItem("product_" + id, count);	
-   alert("Added to Cart Product_" + count);
+   alert("Added to Cart Product_" + id);
 
    total_prods = total_prods_in_cart();
    show_cart(total_prods);
