@@ -1,0 +1,21 @@
+<h2>Thank You! Your order has been submitted!</h2>
+
+<h2>Order Details:</h2>
+
+<div class="container-fluid" style="padding:20px;border-radius:3px; border: 1px solid gray">
+	<%@hh.each do |key, value| %>
+           
+		<p style="font-size: 20px"><b><%= key %>:</b> <%=value%></p>
+	<%end%>
+</div>
+
+<script>
+
+$( document ).ready(function() {
+   
+   console.log("Ready");
+   window.localStorage.clear();
+});
+
+</script>
+	 		 

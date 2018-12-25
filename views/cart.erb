@@ -30,7 +30,7 @@
 	<div calss="container">
        <div class="row">
         <div class="col-md-4">
-	       	<form method="POST" action="/order">
+	       	<form method="POST" action="/place_order">
 			  <div class="form-group">
 			    <label for="name">Name</label>
 			    <input type="text" name="cart_order[name]" class="form-control" id="name" placeholder="Name">
@@ -50,6 +50,8 @@
   			 </div>
 
 			  <button type="submit" class="btn btn-primary">Submit Order</button>
+			  <button type="submit" class="btn btn-warning" onclick="return cancel_order()">Cancel Order</button>
+
 		</form>
 	</div>
 
@@ -84,6 +86,10 @@ function get_orders() {
 
 } // function
 
+function cancel_order() {
 
+   alert('I am alive');
+   return false;   
+} // function
 
 </script>

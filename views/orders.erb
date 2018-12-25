@@ -1,0 +1,16 @@
+<h2>Orders</h2>
+<%@orders.each do |order| %>
+
+    <h3>
+		<p>Name:          <%=order.name%></p>
+		<p>Phone:         <%=order.phone%></p2>
+		<p>Address:       <%=order.address%></p>
+		<p>Products:      <%=order.order_details%></p>
+    	<p>Order date:    <%=order.created_at%></p>
+        <p>Order updated: <%=order.updated_at%></p>
+    		
+    		
+    </h3>
+    <hr/>
+
+<%end%>

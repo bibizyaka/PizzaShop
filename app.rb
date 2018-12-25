@@ -65,11 +65,13 @@ end
     return final_orders
 end #def pars
 
-post '/order' do
-  
+post '/place_order' do
+   
    @o = Order.new params[:cart_order]
+   @hh = {}
+   @hh = params[:cart_order]
    if (@o.save)
-        erb "<h2>Thank You! You are submitted!</h2>"
+   	   erb :order_summary      
    else
    	  @error = @o.errors.full_messages.first
       #erb :cart
@@ -77,3 +79,11 @@ post '/order' do
    end #if
 
 end #post order
+
+get '/orders' do
+   
+	@orders = Order.all
+    erb :orders
+   
+end #get orders
+
