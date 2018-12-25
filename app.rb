@@ -41,11 +41,14 @@ post '/cart' do
 	orders_input = params[:orders]
     
     @items = pars_orders_input orders_input
-    @items.each do |item| # changing id with product object
-      item[0] = Product.find(item[0])
-    end
-	
-	erb :cart
+    if @items.length == 0
+    	erb :cart_is_empty
+    else
+      @items.each do |item| # changing id with product object
+         item[0] = Product.find(item[0])
+      end #each do
+	  erb :cart
+	end #else
 end
 
  def pars_orders_input orders_input
