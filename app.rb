@@ -83,7 +83,7 @@ post '/place_order' do
 
 end #post order
 
-get '/orders' do
+get '/admin' do
    
 	@orders = Order.all
     erb :orders
